@@ -4,6 +4,10 @@
         {
             "id": "candlelight:mozzarella",
             "required": false
+        },
+        {
+            "id": "ad_astra:cheese",
+            "required": false
         }
     ]
 }
