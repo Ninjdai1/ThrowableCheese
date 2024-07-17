@@ -3,7 +3,7 @@
   "values": [
     {
       "id": "meadow:piece_of_cheese",
-      "required": false
+      "required": true
     },
     {
       "id": "meadow:piece_of_amethyst_cheese",

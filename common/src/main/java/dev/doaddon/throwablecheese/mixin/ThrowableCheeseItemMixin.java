@@ -1,5 +1,6 @@
 package dev.doaddon.throwablecheese.mixin;
 
+import dev.doaddon.throwablecheese.ThrowableCheese;
 import dev.doaddon.throwablecheese.entity.CheeseEntity;
 import dev.doaddon.throwablecheese.registry.ThrowableCheeseTags;
 import net.minecraft.sounds.SoundEvents;
