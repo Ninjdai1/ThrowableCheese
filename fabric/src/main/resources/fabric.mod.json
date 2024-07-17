@@ -3,9 +3,9 @@
   "id": "throwablecheese",
   "version": "${version}",
   "name": "[Let's Do Addon] Throwable Cheese",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "THROW THE CHEESE !",
   "authors": [
-    "Me!"
+    "Ninjdai"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -34,8 +34,5 @@
     "java": ">=17",
     "architectury": ">=9.2.14",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "GPLv3"
 
 [[mods]]
 modId = "throwablecheese"
 version = "${version}"
 displayName = "[Let's Do Addon] Throwable Cheese"
-authors = "Me!"
+authors = "Ninjdai"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+THROW THE CHEESE
 '''
 #logoFile = ""
 
