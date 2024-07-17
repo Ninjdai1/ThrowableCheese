@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
-@Mixin(value = Item.class, remap = false)
+@Mixin(value = Item.class)
 public abstract class ThrowableCheeseItemMixin {
 
     @Inject(

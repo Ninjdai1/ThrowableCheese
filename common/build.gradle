@@ -8,4 +8,6 @@ dependencies {
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
     modImplementation "maven.modrinth:lets-do-meadow:${project.meadow_version}"
+
+    implementation("blue.endless:jankson:${rootProject.jankson_version}")
 }
