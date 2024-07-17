@@ -8,4 +8,5 @@ import net.minecraft.world.item.Item;
 
 public class ThrowableCheeseTags {
     public static final TagKey<Item> PIECE_OF_CHEESE = TagKey.create(Registries.ITEM, new ResourceLocation(ThrowableCheese.MOD_ID, "piece_of_cheese"));
+    public static final TagKey<Item> THROWABLE = TagKey.create(Registries.ITEM, new ResourceLocation(ThrowableCheese.MOD_ID, "throwable"));
 }

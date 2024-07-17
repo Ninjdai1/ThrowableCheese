@@ -2,6 +2,10 @@
     "replace": false,
     "values": [
         {
+            "tag": "throwablecheese:piece_of_cheese",
+            "required": false
+        },
+        {
             "id": "candlelight:mozzarella",
             "required": false
         },

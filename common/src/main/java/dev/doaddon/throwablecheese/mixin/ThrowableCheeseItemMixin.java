@@ -28,7 +28,7 @@ public abstract class ThrowableCheeseItemMixin {
     )
     @Mutable
     public void use(Level level, Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        if(player.getItemInHand(interactionHand).is(ThrowableCheeseTags.PIECE_OF_CHEESE) && player.isShiftKeyDown()){
+        if(player.getItemInHand(interactionHand).is(ThrowableCheeseTags.THROWABLE) && player.isShiftKeyDown()){
             ItemStack itemStack = player.getItemInHand(interactionHand);
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
