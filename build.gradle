@@ -147,6 +147,8 @@ publishMods {
         file = project(":fabric").tasks.named("remapJar").get().archiveFile
         displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Fabric"
         version = "${rootProject.mod_version}-fabric"
+        
+        additionalFiles.from(project(":fabric").tasks.named("remapSourcesJar").get().archiveFile)
     }
 
     curseforge("curseforgeForge") {
@@ -156,6 +158,8 @@ publishMods {
         file = project(":forge").tasks.named("remapJar").get().archiveFile
         displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Forge"
         version = "${rootProject.mod_version}-forge"
+
+        additionalFiles.from(project(":forge").tasks.named("remapSourcesJar").get().archiveFile)
     }
 
     modrinth("modrinthFabric") {
@@ -176,7 +180,8 @@ publishMods {
         file = project(":forge").tasks.named("remapJar").get().archiveFile
         displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Forge"
         version = "${rootProject.mod_version}-forge"
+
+        additionalFiles.from(project(":forge").tasks.named("remapSourcesJar").get().archiveFile)
     }
 
-    additionalFiles.from(project(":forge").tasks.named("remapSourcesJar").get().archiveFile)
 }
