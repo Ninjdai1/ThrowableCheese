@@ -2,6 +2,7 @@ plugins {
     id 'dev.architectury.loom' version '1.6-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
+    id "me.modmuss50.mod-publish-plugin" version "0.5.1"
 }
 
 tasks.register("multiplatformDatagen") {
@@ -108,4 +109,74 @@ subprojects {
         repositories {
         }
     }
+}
+
+
+publishMods {
+    changelog = file("CHANGELOG.md").text.replace("@VERSION@", rootProject.mod_version)
+    type = STABLE
+
+    def optionsCurseforge = curseforgeOptions {
+        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+        minecraftVersions.add("1.20.1")
+        projectId = "1065633"
+        requires {
+            slug = "architectury-api"
+        }
+        requires {
+            slug = "lets-do-meadow"
+        }
+    }
+
+    def optionsModrinth = modrinthOptions {
+        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+        projectId = "mmxlzX6T"
+        minecraftVersions.add("1.20.1")
+        requires {
+            slug = "architectury-api"
+        }
+        requires {
+            slug = "lets-do-meadow"
+        }
+    }
+
+    curseforge("curseforgeFabric") {
+        from optionsCurseforge
+        modLoaders.add("fabric")
+        modLoaders.add("quilt")
+        file = project(":fabric").tasks.named("remapJar").get().archiveFile
+        displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Fabric"
+        version = "${rootProject.mod_version}-fabric"
+    }
+
+    curseforge("curseforgeForge") {
+        from optionsCurseforge
+        modLoaders.add("forge")
+        modLoaders.add("neoforge")
+        file = project(":forge").tasks.named("remapJar").get().archiveFile
+        displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Forge"
+        version = "${rootProject.mod_version}-forge"
+    }
+
+    modrinth("modrinthFabric") {
+        from optionsModrinth
+        modLoaders.add("fabric")
+        modLoaders.add("quilt")
+        file = project(":fabric").tasks.named("remapJar").get().archiveFile
+        displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Fabric"
+        version = "${rootProject.mod_version}-fabric"
+
+        additionalFiles.from(project(":fabric").tasks.named("remapSourcesJar").get().archiveFile)
+    }
+
+    modrinth("modrinthForge") {
+        from optionsModrinth
+        modLoaders.add("forge")
+        modLoaders.add("neoforge")
+        file = project(":forge").tasks.named("remapJar").get().archiveFile
+        displayName = "[Let's Do Addon] ThrowableCheese ${rootProject.mod_version} Forge"
+        version = "${rootProject.mod_version}-forge"
+    }
+
+    additionalFiles.from(project(":forge").tasks.named("remapSourcesJar").get().archiveFile)
 }
